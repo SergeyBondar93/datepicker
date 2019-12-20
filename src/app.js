@@ -7,7 +7,7 @@ import {
   createFullField,
   transformToNeedFormat,
   getYear,
-  months, 
+  months,
   years,
   createEndDates,
   createStartDates,
@@ -42,14 +42,13 @@ const App = ({
 
 
   const [rangeDates, changeRangeDates] = useState([]);
-  
-  
+
+
   const handleHover = el => {
     if (select === "multy" && selectedDates.length === 1) {
       changeRangeDates(createHoveredDates(el, selectedDates[0]));
     }
-  };  
-
+  };
 
 
   const handleScroll = (e) => {
@@ -118,7 +117,7 @@ const App = ({
       ];
       onApply(newSelectedDates);
     } else {
-      onApply([transformToNeedFormat(selectedDates, 'dd-mm-YYYY')]);
+      onApply([ ...selectedDates.map(date => transformToNeedFormat(date, 'dd-mm-YYYY'))]);
     }
   }, [selectedDates]);
 

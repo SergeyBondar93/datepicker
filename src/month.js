@@ -24,11 +24,10 @@ export const MonthDays = ({
 }) => {
   const [eventsBlock, showEventsBlock] = useState({})
   const datesWrapperRef = useRef({})
-  console.log(x, y)
   useEffect(() => {
     datesWrapperRef.current.scrollTop = 100;
   }, [datesWrapperRef.current])
-  
+
   useEffect(() => {
     // if (!datesWrapperRef.current.scrollTop) datesWrapperRef.current.scrollTop = 10;
     // if (datesWrapperRef.current.scrollTop > 340) datesWrapperRef.current.scrollTop = 340;
@@ -38,8 +37,8 @@ export const MonthDays = ({
     changeYear(targetDate.getFullYear())
   }, [datesWrapperRef.current.scrollTop, dates])
 
-  
-  
+
+
   const handleMouseOver = (e, el, events) => {
     onHover(el);
     if (events.length) {
@@ -57,7 +56,7 @@ export const MonthDays = ({
 
   return (
     <>
-    { eventsBlock.top && eventsBlock.left && 
+    { eventsBlock.top && eventsBlock.left &&
       <EventsPopover
         top={eventsBlock.top}
         left={eventsBlock.left}
@@ -89,9 +88,9 @@ export const MonthDays = ({
             {
               currentEvents.length ? (
                 <EventsBlock>
-                   {currentEvents.map(({ priority }, i) => 
+                   {currentEvents.map(({ priority }, i) =>
                       <EventDot priority={priority} />
-                    )} 
+                    )}
                 </EventsBlock>
               ) : null
             }
